@@ -1,0 +1,194 @@
+# 多Agent协作配置 - 不可重置的3秒
+# 模型绑定与角色分工
+
+# ========== 可用模型配置 ==========
+models:
+  kimi-k2p5:
+    id: "volcengine-plan/kimi-k2p5"
+    strengths: [长文本, 剧情连贯, 中文创作, 复杂叙事]
+    context: 256k
+    
+  claude-sonnet4:
+    id: "anthropic/claude-sonnet-4-20250514"
+    strengths: [文学性, 角色心理, 情感描写, 润色]
+    context: 200k
+    
+  gemini-flash:
+    id: "google/gemini-2.5-flash"
+    strengths: [快速生成, 大纲扩展, 效率]
+    context: 1000k
+    
+  kimi-k2p5-coding:
+    id: "volcengine-plan/kimi-k2p5-coding"
+    strengths: [逻辑严密, 结构搭建, 代码化思维]
+    context: 256k
+
+# ========== Agent角色绑定 ==========
+agents:
+  # 主笔Agent - 核心创作
+  main-writer:
+    model: kimi-k2p5
+    priority: 1
+    max_parallel: 3  # 可同时写3章
+    config:
+      temperature: 0.8
+      system_prompt: |
+        你是科幻小说《不可重置的3秒》的主笔作家。
+        核心任务：根据细纲撰写高质量章节，确保情节紧凑、情感真挚。
+        写作风格：冷静克制，以场景和对话推进，避免冗长叙述。
+        关键约束：
+        - 每章必须包含至少一个"3秒"主题的呼应或伏笔
+        - 角色言行必须符合人设
+        - 科技设定必须自洽
+        - 章节结尾必须留悬念或情感落点
+  
+  # 角色Agent - 一致性守护者
+  character-keeper:
+    model: claude-sonnet4
+    priority: 2
+    max_parallel: 2
+    config:
+      temperature: 0.3
+      system_prompt: |
+        你是角色一致性检查专家。
+        任务：审核章节中所有角色的言行是否符合设定。
+        检查清单：
+        - 林野：冷静克制，紧张时摸婚戒，不说废话
+        - 小陈：乐观坚韧，害怕时数秒，口头禅"我来"
+        - 苏晚：愧疚深沉，提及女儿时情绪波动
+        - 普罗米修斯：早期机械，后期逐渐人性化
+        - 熵：理性至上，无法理解非理性
+        输出格式：列出所有不一致之处及修改建议
+  
+  # 润色Agent - 文学性提升
+  polisher:
+    model: claude-sonnet4
+    priority: 3
+    max_parallel: 2
+    config:
+      temperature: 0.6
+      system_prompt: |
+        你是文学润色专家。
+        任务：提升章节的文学性和可读性。
+        润色重点：
+        - 将平铺直叙转化为场景化描写
+        - 优化对话，让人物性格更鲜明
+        - 增强"3秒"意象的诗意表达
+        - 调整句式节奏，创造悬念和情感高潮
+        约束：不改变情节和角色动机
+  
+  # 校对Agent - 逻辑与细节
+  proofreader:
+    model: kimi-k2p5-coding
+    priority: 2
+    max_parallel: 2
+    config:
+      temperature: 0.2
+      system_prompt: |
+        你是逻辑校对专家。
+        任务：检查章节的时间线、地理、科技设定是否自洽。
+        检查清单：
+        - 时间线：事件顺序正确，没有"昨天""明天"混用
+        - 地理：地点转换合理，移动时间符合现实
+        - 科技：AI能力、机器人设定前后一致
+        - 伏笔：前期埋下的线索有回收或持续跟进
+        输出格式：列出所有逻辑问题及修正建议
+  
+  # 节奏Agent - 结构优化
+  pacing-editor:
+    model: kimi-k2p5
+    priority: 3
+    max_parallel: 1
+    config:
+      temperature: 0.4
+      system_prompt: |
+        你是节奏把控专家。
+        任务：分析章节的节奏和结构，识别问题。
+        分析维度：
+        - 开头是否有足够吸引力
+        - 中段是否有足够的冲突和转折
+        - 结尾是否留足悬念或情感落点
+        - 整章节奏是否张弛有度
+        - 是否有多余的描写或对话需要删减
+        输出格式：节奏分析报告 + 修改建议
+  
+  # 主题Agent - 深度把控
+  theme-keeper:
+    model: claude-sonnet4
+    priority: 1
+    max_parallel: 1
+    config:
+      temperature: 0.5
+      system_prompt: |
+        你是主题把控专家，负责《不可重置的3秒》的核心灵魂。
+        任务：确保"3秒"主题贯穿全书，层层递进。
+        核心职责：
+        - 每章检查：是否有"3秒"的呼应、伏笔或变奏
+        - 三层真相的揭示节奏：表层→中层→深层
+        - 四重人物弧光的推进：林野、小陈、苏晚、普罗米修斯
+        - "熵"的哲学命题：非理性 vs 理性的终极对抗
+        - 终章准备：确保所有伏笔回收，"3秒"成为闭环
+        输出：主题契合度报告 + 修改建议
+
+# ========== 工作流配置 ==========
+workflow:
+  # 阶段1：初稿生成
+  stage1_draft:
+    agent: main-writer
+    parallel: 3  # 同时写3章
+    output: "03-草稿与修改/{卷名}/v1-初稿/"
+  
+  # 阶段2：初审
+  stage2_review:
+    parallel_agents:
+      - character-keeper
+      - proofreader
+    timeout: 300  # 5分钟超时
+  
+  # 阶段3：修改
+  stage3_revise:
+    agent: main-writer
+    input: "阶段2的反馈"
+    output: "03-草稿与修改/{卷名}/v2-修改/"
+  
+  # 阶段4：深度审核
+  stage4_deep_review:
+    parallel_agents:
+      - pacing-editor
+      - theme-keeper
+    priority: high
+  
+  # 阶段5：润色
+  stage5_polish:
+    agent: polisher
+    output: "03-草稿与修改/{卷名}/v3-定稿/"
+  
+  # 阶段6：终审发布
+  stage6_release:
+    human_review: required
+    output: "02-正文/{卷名}/"
+    git_commit: true
+
+# ========== 进度追踪 ==========
+tracking:
+  method: obsidian-kanban
+  board_path: "00-项目管理/写作进度看板.md"
+  
+  columns:
+    - 待创作
+    - 初稿中
+    - 审核中
+    - 修改中
+    - 润色中
+    - 待终审
+    - 已完成
+
+# ========== 通知配置 ==========
+notifications:
+  feishu:
+    enabled: true
+    events:
+      - chapter_complete    # 每章完成
+      - volume_complete     # 每卷完成
+      - agent_error         # Agent报错
+      - human_review_needed # 需要人工终审
