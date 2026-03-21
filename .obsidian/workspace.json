@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05-工具/Obsidian插件配置指南.md",
+                "file": "05-工具/协作规范.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Obsidian插件配置指南"
+              "title": "协作规范"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "05-工具/Obsidian插件配置指南.md",
+                "file": "05-工具/协作规范.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Obsidian插件配置指南 的反向链接列表"
+              "title": "协作规范 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "05-工具/Obsidian插件配置指南.md",
+                "file": "05-工具/协作规范.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Obsidian插件配置指南 的出链列表"
+              "title": "协作规范 的出链列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "05-工具/Obsidian插件配置指南.md",
+                "file": "05-工具/协作规范.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Obsidian插件配置指南 的大纲"
+              "title": "协作规范 的大纲"
             }
           }
         ]
@@ -185,16 +185,27 @@
   },
   "active": "679710df6d797911",
   "lastOpenFiles": [
-    "05-工具/GitHub-Actions自动同步配置.md",
+    "01-大纲/分卷大纲/第六卷-反向入侵-写作计划.md",
+    "01-大纲/分卷大纲/第五卷-深空幽暗-写作计划.md",
+    "01-大纲/分卷大纲/第三卷-清零日-写作计划.md",
+    "01-大纲/分卷大纲/第四卷-北极对决-写作计划.md",
     "05-工具/小说导出格式指南.md",
+    "05-工具/数据备份策略.md",
+    "05-工具/故障排除手册-精简版.md",
+    "05-工具/出版准备清单.md",
+    "05-工具/版本控制规范.md",
     "00-项目管理/写作进度看板.md",
-    "05-工具/检查清单/创作检查清单.md",
+    "05-工具/协作规范.md",
+    "01-大纲/分卷大纲/第一卷-深海来信-写作计划.md",
+    "01-大纲/分卷大纲/第二卷-失控边缘-写作计划.md",
+    "05-工具/Agent操作手册-精简版.md",
+    "05-工具/GitHub-Actions自动同步配置.md",
     "05-工具/Obsidian插件配置指南.md",
     "SOP-环境搭建与执行指南.md",
     "README.md",
-    "01-大纲/分卷大纲/第一卷-深海来信-写作计划.md",
-    "05-工具/写作模板/章节模板.md",
     "角色数据库.md",
+    "05-工具/写作模板/章节模板.md",
+    "05-工具/检查清单/创作检查清单.md",
     "小说写作主控.sh",
     "启动第一卷写作.sh",
     "启动多Agent写作系统.sh",
