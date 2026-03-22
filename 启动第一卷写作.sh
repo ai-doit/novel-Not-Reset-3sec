@@ -102,7 +102,7 @@ if git push origin main 2>/dev/null; then
     echo "✅ 已推送到GitHub"
 else
     echo "⚠️ 推送失败，请检查GitHub仓库权限"
-    echo "   仓库地址: https://github.com/ai-doit/不可重置的3秒"
+    echo "   仓库地址: https://github.com/ai-doit/novel-Not-Reset-3sec"
 fi
 echo ""
 

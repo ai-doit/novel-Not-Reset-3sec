@@ -76,7 +76,7 @@ sync_github() {
     
     if git push origin main; then
         echo "✅ 同步成功"
-        echo "   仓库地址: https://github.com/ai-doit/不可重置的3秒"
+        echo "   仓库地址: https://github.com/ai-doit/novel-Not-Reset-3sec"
     else
         echo "❌ 同步失败"
         echo "   请检查网络连接和GitHub权限"

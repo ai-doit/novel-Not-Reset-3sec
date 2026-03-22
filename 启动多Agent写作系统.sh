@@ -73,7 +73,7 @@ if git remote -v > /dev/null 2>&1; then
     git remote -v
 else
     echo "⚠️ 未配置远程仓库"
-    echo "请运行: git remote add origin https://github.com/ai-doit/不可重置的3秒.git"
+    echo "请运行: git remote add origin https://github.com/ai-doit/novel-Not-Reset-3sec.git"
 fi
 
 echo ""

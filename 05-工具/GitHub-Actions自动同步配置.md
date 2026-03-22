@@ -11,8 +11,8 @@
 在项目中创建 `.github/workflows/sync.yml`:
 
 ```bash
-mkdir -p /Users/derek/Documents/novel-不可重置的3秒/.github/workflows
-cat > /Users/derek/Documents/novel-不可重置的3秒/.github/workflows/sync.yml << 'EOF'
+mkdir -p /Users/derek/Documents/novel-Not-Reset-3sec/.github/workflows
+cat > /Users/derek/Documents/novel-Not-Reset-3sec/.github/workflows/sync.yml << 'EOF'
 name: Auto Sync to GitHub
 
 on:
@@ -69,7 +69,7 @@ EOF
 ### 步骤2: 提交GitHub Actions配置
 
 ```bash
-cd /Users/derek/Documents/novel-不可重置的3秒
+cd /Users/derek/Documents/novel-Not-Reset-3sec
 git add .github/workflows/sync.yml
 git commit -m "添加GitHub Actions自动同步工作流"
 git push origin main
@@ -77,7 +77,7 @@ git push origin main
 
 ### 步骤3: 验证Actions工作流
 
-1. 访问 GitHub 仓库: `https://github.com/ai-doit/不可重置的3秒`
+1. 访问 GitHub 仓库: `https://github.com/ai-doit/novel-Not-Reset-3sec`
 2. 点击 **Actions** 标签
 3. 确认工作流 **Auto Sync to GitHub** 已显示
 4. 点击 **Run workflow** 手动触发一次测试
@@ -98,8 +98,8 @@ git push origin main
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       with:
-        source-repo: "git@github.com:ai-doit/不可重置的3秒.git"
-        destination-repo: "git@github.com:ai-doit-backup/不可重置的3秒.git"
+        source-repo: "git@github.com:ai-doit/novel-Not-Reset-3sec.git"
+        destination-repo: "git@github.com:ai-doit-backup/novel-Not-Reset-3sec.git"
 ```
 
 ### 配置Slack/飞书通知（可选）
@@ -130,7 +130,7 @@ git push origin main
 **解决方案**:
 ```bash
 # 检查workflow文件语法
-cd /Users/derek/Documents/novel-不可重置的3秒
+cd /Users/derek/Documents/novel-Not-Reset-3sec
 .github/workflows/sync.yml
 
 # 确保文件已提交
@@ -169,7 +169,7 @@ ssh -T git@github.com
 ### 本地查看同步状态
 
 ```bash
-cd /Users/derek/Documents/novel-不可重置的3秒
+cd /Users/derek/Documents/novel-Not-Reset-3sec
 
 # 查看最近的提交
 git log --oneline -10

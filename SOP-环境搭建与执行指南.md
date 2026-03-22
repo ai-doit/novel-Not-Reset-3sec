@@ -40,7 +40,7 @@
 
 ### 项目结构
 ```
-novel-不可重置的3秒/
+novel-Not-Reset-3sec/
 ├── 00-项目管理/          # 进度看板、工作日志
 ├── 01-大纲/              # 分卷大纲、章节细纲
 ├── 02-正文/              # 六卷正文（Git版本控制）
@@ -63,8 +63,8 @@ novel-不可重置的3秒/
 **操作步骤**:
 ```bash
 # 1. 创建主目录
-mkdir -p /Users/derek/Documents/novel-不可重置的3秒
-cd /Users/derek/Documents/novel-不可重置的3秒
+mkdir -p /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/derek/Documents/novel-Not-Reset-3sec
 
 # 2. 创建一级目录
 mkdir -p 00-项目管理
@@ -83,7 +83,7 @@ for vol in 第一卷-深海来信 第二卷-失控边缘 第三卷-清零日 第
 done
 
 # 4. 创建软链接到workspace
-ln -sf /Users/derek/Documents/novel-不可重置的3秒 /Users/derek/.openclaw/workspace/novel
+ln -sf /Users/derek/Documents/novel-Not-Reset-3sec /Users/derek/.openclaw/workspace/novel-Not-Reset-3sec
 
 # 5. 验证创建结果
 tree -L 2 -d || find . -maxdepth 2 -type d | sort
@@ -110,7 +110,7 @@ echo "✅ 目录结构创建完成"
 **验证方法**:
 ```bash
 # 检查目录是否存在
-ls -la /Users/derek/Documents/novel-不可重置的3秒
+ls -la /Users/derek/Documents/novel-Not-Reset-3sec
 
 # 检查软链接
 ls -la /Users/derek/.openclaw/workspace/novel
@@ -124,7 +124,7 @@ ls -la /Users/derek/.openclaw/workspace/novel
 
 **操作步骤**:
 ```bash
-cd /Users/derek/Documents/novel-不可重置的3秒
+cd /Users/derek/Documents/novel-Not-Reset-3sec
 
 # 1. 初始化Git仓库
 git init
@@ -248,7 +248,7 @@ echo "✅ Git初始化完成"
 
 **预期输出**:
 ```
-Initialized empty Git repository in /Users/derek/Documents/novel-不可重置的3秒/.git/
+Initialized empty Git repository in /Users/derek/Documents/novel-Not-Reset-3sec/.git/
 [main (root-commit) xxxxxxx] Initial commit: 项目初始化
 ...
 ✅ Git初始化完成
@@ -263,14 +263,14 @@ Initialized empty Git repository in /Users/derek/Documents/novel-不可重置的
 
 ### 步骤1.3: 配置GitHub远程仓库
 
-**执行条件**: 已在GitHub创建仓库 `https://github.com/ai-doit/不可重置的3秒`
+**执行条件**: 已在GitHub创建仓库 `https://github.com/ai-doit/novel-Not-Reset-3sec`
 
 **操作步骤**:
 ```bash
-cd /Users/derek/Documents/novel-不可重置的3秒
+cd /Users/derek/Documents/novel-Not-Reset-3sec
 
 # 1. 添加远程仓库
-git remote add origin https://github.com/ai-doit/不可重置的3秒.git
+git remote add origin https://github.com/ai-doit/novel-Not-Reset-3sec.git
 
 # 2. 验证远程仓库
 git remote -v
@@ -279,15 +279,15 @@ git remote -v
 git push -u origin main
 
 # 4. 验证推送成功
-echo "查看GitHub仓库: https://github.com/ai-doit/不可重置的3秒"
+echo "查看GitHub仓库: https://github.com/ai-doit/novel-Not-Reset-3sec"
 
 echo "✅ GitHub配置完成"
 ```
 
 **预期输出**:
 ```
-origin  https://github.com/ai-doit/不可重置的3秒.git (fetch)
-origin  https://github.com/ai-doit/不可重置的3秒.git (push)
+origin  https://github.com/ai-doit/novel-Not-Reset-3sec.git (fetch)
+origin  https://github.com/ai-doit/novel-Not-Reset-3sec.git (push)
 Enumerating objects: XX, done.
 ...
 ✅ GitHub配置完成
@@ -309,7 +309,7 @@ Enumerating objects: XX, done.
 由于Agent配置文件已在之前创建，这里提供验证和更新步骤：
 
 ```bash
-cd /Users/derek/Documents/novel-不可重置的3秒
+cd /Users/derek/Documents/novel-Not-Reset-3sec
 
 # 1. 检查Agent配置文件是否存在
 ls -la AGENT-CONFIG.yaml
@@ -346,7 +346,7 @@ models:
 角色数据库已在之前创建，这里提供验证步骤：
 
 ```bash
-cd /Users/derek/Documents/novel-不可重置的3秒
+cd /Users/derek/Documents/novel-Not-Reset-3sec
 
 # 1. 检查角色数据库是否存在
 ls -la 角色数据库.md
@@ -369,7 +369,7 @@ echo "✅ 角色数据库已验证"
 **操作步骤**:
 
 ```bash
-cd /Users/derek/Documents/novel-不可重置的3秒
+cd /Users/derek/Documents/novel-Not-Reset-3sec
 
 # 1. 检查第一卷写作计划
 ls -la "01-大纲/分卷大纲/第一卷-深海来信-写作计划.md"
