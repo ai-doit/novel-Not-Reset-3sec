@@ -11,8 +11,8 @@
 在项目中创建 `.github/workflows/sync.yml`:
 
 ```bash
-mkdir -p /Users/derek/Documents/novel-Not-Reset-3sec/.github/workflows
-cat > /Users/derek/Documents/novel-Not-Reset-3sec/.github/workflows/sync.yml << 'EOF'
+mkdir -p /Users/zhangliqin/Documents/novel-Not-Reset-3sec/.github/workflows
+cat > /Users/zhangliqin/Documents/novel-Not-Reset-3sec/.github/workflows/sync.yml << 'EOF'
 name: Auto Sync to GitHub
 
 on:
@@ -69,7 +69,7 @@ EOF
 ### 步骤2: 提交GitHub Actions配置
 
 ```bash
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 git add .github/workflows/sync.yml
 git commit -m "添加GitHub Actions自动同步工作流"
 git push origin main
@@ -130,7 +130,7 @@ git push origin main
 **解决方案**:
 ```bash
 # 检查workflow文件语法
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 .github/workflows/sync.yml
 
 # 确保文件已提交
@@ -169,7 +169,7 @@ ssh -T git@github.com
 ### 本地查看同步状态
 
 ```bash
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 
 # 查看最近的提交
 git log --oneline -10

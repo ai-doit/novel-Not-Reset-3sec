@@ -293,7 +293,7 @@ kanban-plugin: basic
 #### Q1: Git插件无法自动备份
 **A**: 检查Git是否正确安装，以及Vault是否在Git仓库中
 ```bash
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 git status
 ```
 

@@ -58,13 +58,13 @@ novel-Not-Reset-3sec/
 
 ### 步骤1.1: 创建项目目录结构
 
-**执行条件**: 在macOS上执行，需要写入权限到 `/Users/derek/Documents/`
+**执行条件**: 在macOS上执行，需要写入权限到 `/Users/zhangliqin/Documents/`
 
 **操作步骤**:
 ```bash
 # 1. 创建主目录
-mkdir -p /Users/derek/Documents/novel-Not-Reset-3sec
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+mkdir -p /Users/zhangliqin/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 
 # 2. 创建一级目录
 mkdir -p 00-项目管理
@@ -83,7 +83,7 @@ for vol in 第一卷-深海来信 第二卷-失控边缘 第三卷-清零日 第
 done
 
 # 4. 创建软链接到workspace
-ln -sf /Users/derek/Documents/novel-Not-Reset-3sec /Users/derek/.openclaw/workspace/novel-Not-Reset-3sec
+ln -sf /Users/zhangliqin/Documents/novel-Not-Reset-3sec /Users/zhangliqin/.openclaw/workspace/novel-Not-Reset-3sec
 
 # 5. 验证创建结果
 tree -L 2 -d || find . -maxdepth 2 -type d | sort
@@ -110,10 +110,10 @@ echo "✅ 目录结构创建完成"
 **验证方法**:
 ```bash
 # 检查目录是否存在
-ls -la /Users/derek/Documents/novel-Not-Reset-3sec
+ls -la /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 
 # 检查软链接
-ls -la /Users/derek/.openclaw/workspace/novel
+ls -la /Users/zhangliqin/.openclaw/workspace/novel
 ```
 
 ---
@@ -124,7 +124,7 @@ ls -la /Users/derek/.openclaw/workspace/novel
 
 **操作步骤**:
 ```bash
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 
 # 1. 初始化Git仓库
 git init
@@ -241,14 +241,14 @@ git commit -m "Initial commit: 项目初始化
 
 # 6. 检查状态
 git status
-git log --oneline -3
+git log --oneline novel-Not-Reset-3sec=-
 
 echo "✅ Git初始化完成"
 ```
 
 **预期输出**:
 ```
-Initialized empty Git repository in /Users/derek/Documents/novel-Not-Reset-3sec/.git/
+Initialized empty Git repository in /Users/zhangliqin/Documents/novel-Not-Reset-3sec/.git/
 [main (root-commit) xxxxxxx] Initial commit: 项目初始化
 ...
 ✅ Git初始化完成
@@ -267,7 +267,7 @@ Initialized empty Git repository in /Users/derek/Documents/novel-Not-Reset-3sec/
 
 **操作步骤**:
 ```bash
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 
 # 1. 添加远程仓库
 git remote add origin https://github.com/ai-doit/novel-Not-Reset-3sec.git
@@ -309,7 +309,7 @@ Enumerating objects: XX, done.
 由于Agent配置文件已在之前创建，这里提供验证和更新步骤：
 
 ```bash
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 
 # 1. 检查Agent配置文件是否存在
 ls -la AGENT-CONFIG.yaml
@@ -346,7 +346,7 @@ models:
 角色数据库已在之前创建，这里提供验证步骤：
 
 ```bash
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 
 # 1. 检查角色数据库是否存在
 ls -la 角色数据库.md
@@ -369,7 +369,7 @@ echo "✅ 角色数据库已验证"
 **操作步骤**:
 
 ```bash
-cd /Users/derek/Documents/novel-Not-Reset-3sec
+cd /Users/zhangliqin/Documents/novel-Not-Reset-3sec
 
 # 1. 检查第一卷写作计划
 ls -la "01-大纲/分卷大纲/第一卷-深海来信-写作计划.md"
