@@ -1,0 +1,60 @@
+name: Generate EPUB
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Merge all chapters
+        run: |
+          # 创建输出目录
+          mkdir -p output
+          
+          # 合并所有章节
+          echo "# 不可重置的3秒" > book.md
+          echo "" >> book.md
+          echo "**作者：奔跑的蜗牛**" >> book.md
+          echo "" >> book.md
+          
+          # 按顺序合并各卷
+          for volume in "第一卷-深海来信" "第二卷-失控边缘" "第三卷-清零日" "第四卷-北极对决" "第五卷-深空幽暗" "第六卷-反向入侵" "终章-留下的线索"; do
+            echo -e "\n\n---\n\n## $volume" >> book.md
+            # 按章节号排序合并
+            for file in $(ls 02-正文/$volume/*.md | sort -V); do
+              echo -e "\n\n" >> book.md
+              cat "$file" >> book.md
+            done
+          done
+
+      - name: Generate EPUB
+        run: |
+          pandoc book.md -o "不可重置的3秒.epub" \
+            --metadata title="不可重置的3秒" \
+            --metadata author="奔跑的蜗牛" \
+            --toc
+
+      - name: Upload EPUB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name:不可重置的3秒-epub
+          path: "不可重置的3秒.epub"
+
+      - name: Commit EPUB to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "不可重置的3秒.epub"
+          git commit -m "Auto-generate latest epub" || echo "No changes to commit"
+          git push
