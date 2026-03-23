@@ -45,16 +45,29 @@ jobs:
             --metadata author="奔跑的蜗牛" \
             --toc
 
+      - name: Generate DOCX (Word)
+        run: |
+          pandoc book.md -o "不可重置的3秒.docx" \
+            --metadata title="不可重置的3秒" \
+            --metadata author="奔跑的蜗牛" \
+            --toc
+
       - name: Upload EPUB artifact
         uses: actions/upload-artifact@v4
         with:
           name:不可重置的3秒-epub
           path: "不可重置的3秒.epub"
 
-      - name: Commit EPUB to repo
+      - name: Upload DOCX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name:不可重置的3秒-docx
+          path: "不可重置的3秒.docx"
+
+      - name: Commit files to repo
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add "不可重置的3秒.epub"
-          git commit -m "Auto-generate latest epub" || echo "No changes to commit"
+          git add "不可重置的3秒.epub" "不可重置的3sec.docx"
+          git commit -m "Auto-generate latest epub/docx" || echo "No changes to commit"
           git push

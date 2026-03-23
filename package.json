@@ -1,0 +1,24 @@
+{
+  "name": "novel-not-reset-3sec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate-epub.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-doit/novel-Not-Reset-3sec.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ai-doit/novel-Not-Reset-3sec/issues"
+  },
+  "homepage": "https://github.com/ai-doit/novel-Not-Reset-3sec#readme",
+  "dependencies": {
+    "epub-generator": "^1.0.1"
+  }
+}
